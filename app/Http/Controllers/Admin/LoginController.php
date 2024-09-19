@@ -13,11 +13,13 @@ class LoginController extends Controller
     //登录 别名 admin.login 根据别名生成url route(admin.login);
     public function login(Request $request) {
         //表单验证
-        $res = $this->validate($request, [
+        $post = $this->validate($request, [
             'username' => 'required',
             'password' => 'required',
         ]);
-        dump($res);
+        //登录
+        $result = auth()->attempt($post);
+        echo $result;
 
     }
 }

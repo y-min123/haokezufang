@@ -16,6 +16,8 @@
 <div class="header"></div>
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
+        {{-- 引入验证 --}}
+        @include('admin.common.validate')
         <form class="form form-horizontal" action="{{route('admin.login')}}" method="post">
             @csrf
             <div class="row cl">
