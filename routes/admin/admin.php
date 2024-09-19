@@ -8,5 +8,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'], function (){
     //登录处理
     Route::post('login','LoginController@login')->name('admin.login');
 
-
+    //后台首页展示
+    Route::get('index','IndexController@index')->name('admin.index');
+    //欢迎页面
+    Route::get('welcome','IndexController@welcome')->name('admin.welcome');
 });
