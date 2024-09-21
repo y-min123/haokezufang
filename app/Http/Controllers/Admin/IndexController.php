@@ -17,4 +17,11 @@ class IndexController extends Controller
         return view('admin.index.welcome');
     }
 
+    //退出登录
+    public function logout() {
+        //退出登录，就是清空 session
+        auth()->logout();
+        //跳转到登录页面
+        return redirect(route('admin.login'))->with('success','请重新登陆');
+    }
 }
