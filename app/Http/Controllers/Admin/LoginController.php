@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-class LoginController extends Controller
-{
+class LoginController extends Controller {
+//    public function __construct() {
+//        //$this->middleware(['check.admin:login']);//参数login
+//        $this->middleware(['check.admin']);
+//    }
+
     //登录显示
     public function index() {
         //判断用户是否登录过
