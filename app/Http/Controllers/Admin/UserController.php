@@ -23,7 +23,11 @@ class UserController extends BaseController
 
     //添加用户存储
     public function store(Request $request) {
-
+        $this->validate($request, [
+            'username' => 'required|unique:users,username',
+//            'password' => 'required|confrim:password',
+            'phone' => 'required|phone',
+        ]);
     }
 }
 

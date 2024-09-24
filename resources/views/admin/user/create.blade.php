@@ -29,7 +29,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" name="confirmation_password" autocomplete="off">
+                    <input type="text" class="input-text" name="password_confirmation" autocomplete="off">
                 </div>
             </div>
             <div class="row cl">
@@ -92,7 +92,7 @@
                 password: {
                     required: true
                 },
-                confirmation_password: {
+                password_confirmation: {
                     // 两次密码一致写法有点点不一样 用的是和谁一致的ID名称
                     equalTo: '#password'
                 },
