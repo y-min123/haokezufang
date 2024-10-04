@@ -29,3 +29,37 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'], function (){
     });
 
 });
+
+
+//发送邮件
+Route::get('/mail',function (){
+
+    // 在发送邮件之前，可以在配置中添加以下代码来禁用 SSL 验证
+    $mailer = app()->make('mailer');
+    $transport = $mailer->getSwiftMailer()->getTransport();
+    $transport->setStreamOptions(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]);
+
+
+    \Mail::raw("测试发送邮件",function (\Illuminate\Mail\Message $message){
+        //获取回调方法中的形参参数
+        //dump(func_get_arg());
+
+        //发送文本邮件
+//        //发给别人
+//        $message->to('hymandcl@gmail.com');
+//        //主题
+//        $message->subject('测试邮件');
+
+
+        //发送富文本
+        \Mail::send('mail.adduser',['user'=>'张三'],function (\Illuminate\Mail\Message $message){
+            //发给别人
+            $message->to('hymandcl@gmail.com');
+            //主题
+            $message->subject('测试富文本邮件');
+
+        });
+
+    });
+
+});
